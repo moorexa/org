@@ -1,0 +1,2 @@
+# Moorexa PHP Technology
+Our goal is to make PHP a goto language for beginers and expert programmers around the world. We are constantly innovating around this framework, making it fun, incredibly fast and powerful for any web solution. 
