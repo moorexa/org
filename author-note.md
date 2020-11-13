@@ -727,7 +727,9 @@ Etc..
 To set content type with request
 Add this to your request header
 
-Set-Content-Type : ‘content type’
+```php
+Set-Content-Type : 'content type'
+```
 
 ### export variables to a partial file globally
 ```php
