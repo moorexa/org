@@ -576,7 +576,7 @@ $background-async=“image path or name”
     "name": "Moorexa Middleware for payloads",
     "description": "Let's help you manage the payloads with middlewares. You may have to generate the middleware from the cli.",
     "payloads" : [
-        {"load-requirement":"Moorexa\\Middlewares\\Man, Moorexa\\Middlewares\\Man2“},
+        {"load-requirement":"Moorexa\\Middlewares\\Man, Moorexa\\Middlewares\\Man2"},
         {"load-dependency-checker":""},
         {"load-global-variables":""},
         {"load-config":""},
