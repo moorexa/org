@@ -738,3 +738,5 @@ Partials::exportVars('alert-modal', [
         'alertMessage'  => $message
 ]);
 ```
+
+Actaully, this is just a tip of what's possible with Moorexa. We are working on the full documentation, please visit [http://www.moorexa.com] and subscribe to our release broadcast. Thank you!
