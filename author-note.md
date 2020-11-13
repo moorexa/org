@@ -724,6 +724,49 @@ Route::resolveAny
 Etc..
 ```
 
+### using route resource
+```php
+
+    use Lightroom\Packager\Moorexa\RouterMethods;
+    use Lightroom\Packager\Moorexa\Interfaces\ResourceInterface;
+
+    /**
+     * @package download route class
+     * @author Amadi Ifeanyi
+     */
+    class DownloadRoute implements ResourceInterface
+    {
+        /**
+         * @method ResourceInterface onRequest
+         * @param RouterMethods $method
+         * @return void
+         * 
+         * Here is a basic example of how this works.
+         * $method->get('hello/{name}', 'methodName');
+         * 
+         * Where "methodName" is a public method within class.
+         * Hope it's simple enough?
+         */
+        public function onRequest(RouterMethods $method) : void
+        {
+            $method->get('/installation-complete/{id}', 'installationComplete');
+        }
+
+        /**
+         * @method DownloadRoute installationComplete
+         * @param int $id
+         * Installation has been completed
+         */
+        public function installationComplete(int $id)
+        {
+            // your code here... 
+        }
+    }
+
+    // load resource for download and installation
+    Route::resource(DownloadRoute::class);
+```
+
 To set content type with request
 Add this to your request header
 
