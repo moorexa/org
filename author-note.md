@@ -8,12 +8,12 @@ func()->deepscan('modules', 'Errors.php’);
 
 ### get an environment var
 ```php
-var_dump(env('bootstrap', 'controller.basepath'));
+var_dump(env('bootstrap', 'controller.base.path'));
 ```
 
 ### set an environment var
 ```php
-var_dump(env_set('bootstrap/controller.basepath', FRAMEWORK_BASE_PATH));
+var_dump(env_set('bootstrap/controller.base.path', FRAMEWORK_BASE_PATH));
 ```
 
 ### working with event
@@ -75,7 +75,7 @@ class Filters extends Validator
     /**
      * @method Filters nostring
      * @param string $string
-     * @return void
+     * @return bool
      */
     public function nostring(string $string) : bool
     {
@@ -97,7 +97,7 @@ use function Lightroom\Templates\Functions\{view};
 view()->requireJs(AP_STATIC . 'Ap.js')->requireCss(AP_STATIC . 'Ap.css');
 ```
 
-### session that revalidates and expires
+### session that re-validates and expires
 ```php
 use function Lightroom\Requests\Functions\{session};
 
@@ -297,11 +297,9 @@ $query = $database->table($otherTable . ' > fT')->from(
 ])->go();
 ```
 
-### using lightquery for models
+### using light query for models
 ```php
 use Lightroom\Database\LightQuery;
-
-use LightQuery;
 
 // where Account is a model
 
@@ -373,14 +371,16 @@ In view
 ```php
 // In model
 
-$this->request(‘post’)
-$this->request(‘get’)
-$this->request(‘header’)
+$this->request('post');
+$this->request('get');
+$this->request('header');
 $this->viewVar('name', 'chris');
 ```
 
 ### inserting data with nested select statements
 ```php
+use function Lightroom\Database\Functions\{db};
+
 var_dump(db('routes')->insert([
         'routeid' => function($db){
             $db->table('users > u')->get('userid')->where(['u.userid' => 2]);
@@ -399,7 +399,7 @@ var_dump($route->from('users', 'routeid')->get('routeid, route'));
 ```
 
 ### using HYPHE, reusable html directive. Inspired by React JSX
-You can pass props, get childs and much more.
+You can pass props, get child's and much more.
 ```html
 <hy>
     <element name="chris"/>
@@ -426,7 +426,7 @@ $post->pop('message');
 ```
 
 ## working with redirection
-Send data and retrive them
+Send data and retrieve them
 ```php
 use function Lightroom\Templates\Functions\{redirect};
 
@@ -497,27 +497,29 @@ public $actionable = [
 ```
 ### subscribing to assets events
 ```php
-Assets::subscribe(‘css’, function(string $file){
+use Lightroom\Packager\Moorexa\Helpers\Assets;
+
+Assets::subscribe('css', function(string $file){
 
 });
 
-Assets::subscribe(‘js’, function(string $file){
+Assets::subscribe('js', function(string $file){
 
 });
 
-Assets::subscribe(‘image’, function(string $file){
+Assets::subscribe('image', function(string $file){
 
 });
 
-Assets::subscribe(‘media’, function(string $file){
+Assets::subscribe('media', function(string $file){
 
 });
 
-Assets::subscribe(‘loadJs’, function(string $file){
+Assets::subscribe('loadJs', function(string $file){
 
 });
 
-Assets::subscribe(‘loadCss’, function(string $file){
+Assets::subscribe('loadCss', function(string $file){
 
 });
 ```
@@ -595,11 +597,15 @@ $background-async=“image path or name”
 
 ### manage route callback with a class 
 ```php
+use Lightroom\Packager\Moorexa\Router as Route;
+
 Route::get('route-name', ['class name', 'class method']);
 ```
 
 ### create reusable closure
 ```php
+use Lightroom\Packager\Moorexa\Router as Route;
+
 Route::createFunc('verify-mail', function($activation_code){
 });
 ```
@@ -619,7 +625,7 @@ event('ev')->on('model.ready', function($data){
     
 });
 
-event()->emit('ev', 'footer.ready', ..$args);
+event()->emit('ev', 'footer.ready', []);
 event()->on('ev', 'footer.ready', function(...$args){ });
 event()->attach(MyClass::class, 'alias');
 event()->canEmit('eventClass.event') : bool
@@ -668,9 +674,11 @@ endif;
 
 ### applying middlewares using 'apply'. 
 ```php
+use Lightroom\Packager\Moorexa\Router as Route;
+
 // apply middleware
 $ready = func()->trueOnly([
-    Middlewares::apply(Moorexa\Middlewares\Access::class, $request)
+    Middlewares::apply(Moorexa\Middlewares\Access::class, ['app', 'home'])
 ]);
 
 
@@ -700,6 +708,8 @@ Route::prev('render');
 
 ### using route resolvers with middlewares
 ```php
+use Lightroom\Packager\Moorexa\Router as Route;
+
 // approve a volunteer
 Route::resolvePost('/approve/{accountid}', ['accountid' => '[0-9]+'], function($accountid)
 {
@@ -784,4 +794,4 @@ Partials::exportVars('alert-modal', [
 ]);
 ```
 
-Actaully, this is just a tip of what's possible with Moorexa. We are working on the full documentation, please visit [http://www.moorexa.com] and subscribe to our release broadcast. Thank you!
+Actually, this is just a tip of what's possible with Moorexa. We are working on the full documentation, please visit [http://www.moorexa.com] and subscribe to our release broadcast. Thank you!
