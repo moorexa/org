@@ -10,9 +10,9 @@ function readInput()
 }
 
 // ask user 
-fwrite(STDOUT, PHP_EOL . 'What should we install: ');
-fwrite(STDOUT, PHP_EOL . '1. Web ');
-fwrite(STDOUT, PHP_EOL . '2. Api ');
+fwrite(STDOUT, PHP_EOL . 'What do you want to use moorexa for ');
+fwrite(STDOUT, PHP_EOL . '1. Website or Web App ');
+fwrite(STDOUT, PHP_EOL . '2. API services ');
 fwrite(STDOUT, PHP_EOL . PHP_EOL. 'Or Hit Enter to load default >> ');
 
 // read input

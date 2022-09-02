@@ -16,8 +16,7 @@
         "post-create-project-cmd" : [
             "@php util.php",
             "@php install.php",
-            "@php assist install",
-            "@php assist serve"
+            "@php assist install"
         ]
     },
     "require": {
