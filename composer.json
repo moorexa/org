@@ -1,0 +1,35 @@
+{
+    "name": "moorexa/app",
+    "description": "A Powerful MVC Framework for small and large projects.",
+    "keywords": ["php", "moorexa", "php framework", "moorexa framework", "moorexa php framework", "mvc"],
+    "homepage": "http://moorexa.com",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "author" : [
+      {
+        "name" : "Amadi Ifeanyi",
+        "email" : "helloamadiify@gmail.com"
+      }
+    ],
+    "scripts": {
+        "post-create-project-cmd" : [
+            "@php util.php",
+            "@php install.php",
+            "@php assist install"
+        ]
+    },
+    "require": {
+        "ext-json": "*",
+        "ext-gd": "*",
+        "ext-openssl": "*",
+        "ext-simplexml": "*",
+        "ext-fileinfo": "*",
+        "ext-curl": "*",
+        "ext-zip": "*",
+        "ext-pcntl": "*",
+        "symfony/yaml": "^4.4",
+        "monolog/monolog": "^1.25",
+        "filp/whoops": "^2.7"
+    }
+}
