@@ -45,6 +45,7 @@ pclose(popen('php moorexa create -micro --direct-installation', "w"));
 // delete moorexa
 unlink(__DIR__ . '/moorexa');
 
+
 // include the complete process file
 include_once 'completeInstallProcess.php';
 
