@@ -8,7 +8,7 @@ func()->deepscan('modules', 'Errors.php’);
 
 ### get an environment var
 ```php
-var_dump(env('bootstrap', 'controller.base.path'));
+var_dump(get_env('bootstrap', 'controller.base.path'));
 ```
 
 ### set an environment var
