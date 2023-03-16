@@ -21,13 +21,11 @@
     },
     "require": {
         "ext-json": "*",
-        "ext-gd": "*",
         "ext-openssl": "*",
         "ext-simplexml": "*",
         "ext-fileinfo": "*",
         "ext-curl": "*",
         "ext-zip": "*",
-        "ext-pcntl": "*",
         "symfony/yaml": "^4.4",
         "monolog/monolog": "^1.25",
         "filp/whoops": "^2.7"
